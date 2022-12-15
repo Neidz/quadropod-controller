@@ -10,6 +10,7 @@ const createCommand = (motors: MotorOptions[], speed: number): string => {
 
   command += `T${speed}D0`;
 
+  console.log('sending command', command);
   return command;
 };
 

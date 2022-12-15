@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { MotorOptions } from '../../types/motorTypes';
+import { setAllMotors } from '../../utils/motorMovement';
 import { Label, Option, OptionInput, SendButton, SliderInput, Wrapper } from './style';
 import { sendCommand } from './utils';
 
@@ -32,6 +33,8 @@ export const Options: FC<OptionsProps> = ({ config: { ipAddress, setIpAddress, s
         />
       </Option>
       <SendButton onClick={() => sendCommand(motors, ipAddress, speed)}>Send Command</SendButton>
+      <SendButton onClick={() => sendCommand(setAllMotors(1000), ipAddress, speed)}>Send test 1000</SendButton>
+      <SendButton onClick={() => sendCommand(setAllMotors(1600), ipAddress, speed)}>Send test 1600</SendButton>
     </Wrapper>
   );
 };
